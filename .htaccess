@@ -1,0 +1,5 @@
+Options -Indexes
+DirectoryIndex index.php
+<FilesMatch "^(\.env.*|package.*|composer.*)$">
+    Require all denied
+</FilesMatch>

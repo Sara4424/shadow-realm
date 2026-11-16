@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#101126">
+    <title>Shadow Realm: The Lost Kingdom</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header"><div class="brand-mark" aria-hidden="true">SR</div><div><h1>Shadow Realm</h1><p>The Lost Kingdom</p></div><span class="edition">AN ADVENTURE IN FOUR REALMS</span></header>
+<main>
+<section id="auth" class="panel">
+<div class="tabs">
+<button id="loginTab">Login</button>
+<button id="registerTab">Register</button>
+</div>
+<form id="loginForm">
+<h2>Welcome back</h2>
+<label>Email or username<input name="email" type="text" required autocomplete="username">
+</label>
+<label>Password<input name="password" type="password" required autocomplete="current-password">
+</label>
+<label class="checkbox"><input id="showPassword" type="checkbox">Show password</label>
+<button type="submit">Login</button>
+<p>Don't have an account? <button id="registerLink" type="button">Register</button></p>
+</form>
+<form id="registerForm" hidden>
+<h2>Create account</h2>
+<label>Username<input name="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+">
+</label>
+<label>Email<input name="email" type="email" required>
+</label>
+<label>Password (8+ characters)<input name="password" type="password" required minlength="8" maxlength="72" pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,72}" title="Use 8-72 characters including a letter and a number">
+</label>
+<label>Confirm password<input name="confirmPassword" type="password" required minlength="8" maxlength="72" autocomplete="new-password">
+</label>
+<button type="submit">Register</button>
+<button id="backToLogin" type="button">Back to Login</button>
+<p class="hint">A six-digit code will be sent to your email. For local development, open Mailpit.</p>
+</form>
+<form id="otpForm" hidden>
+<h2>Verify your email</h2>
+<p>Enter the 6-digit verification code sent to your email.</p>
+<label>Verification code<input name="otp" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required></label>
+<button type="submit">Verify OTP</button>
+<button id="resendOtp" type="button">Resend OTP</button>
+<button id="otpBackToLogin" type="button">Back to Login</button>
+</form>
+</section>
+
+<section id="dashboard" hidden aria-labelledby="greeting">
+    <div class="welcome panel">
+        <canvas id="dashboardPortrait" class="portrait"></canvas>
+        <div><span class="eyebrow">THE KINGDOM NEEDS YOU</span><h2 id="greeting">Welcome, adventurer</h2><p>Beyond the gates, your story continues.</p></div>
+        <div class="welcome-actions"><button id="profileButton" class="secondary">My Profile</button><button id="logout" class="quiet">Log out</button></div>
+    </div>
+    <div id="dashboardStats" class="stats-grid"></div>
+    <div class="dashboard-columns">
+        <article class="adventure-card panel"><span class="eyebrow">CONTINUE YOUR JOURNEY</span><h2 id="adventureName">Your next realm</h2><p id="adventureProgress"></p><progress id="adventureMeter" max="4" value="0" aria-label="Realms completed"></progress><button id="continueButton">Continue Adventure <span aria-hidden="true">?</span></button></article>
+        <article class="panel"><div class="section-heading"><h2>Recent activity</h2><button id="historyButton" class="quiet">View history ?</button></div><div id="recentActivity"></div></article>
+    </div>
+    <div class="section-heading"><div><span class="eyebrow">CHOOSE YOUR PATH</span><h2>The four realms</h2></div><button id="leaderboardButton" class="secondary">View Champions</button></div>
+    <div id="levels" class="level-grid"></div>
+</section>
+<section id="profileScreen" class="panel" hidden aria-labelledby="profileTitle"><button class="back-button quiet" data-dashboard>? Back to Dashboard</button><span class="eyebrow">YOUR VIRTUAL IDENTITY</span><h2 id="profileTitle">Player Profile</h2><div id="profileContent" class="profile-layout"></div></section>
+<section id="historyScreen" class="panel" hidden aria-labelledby="historyTitle"><button class="back-button quiet" data-dashboard>? Back to Dashboard</button><span class="eyebrow">THE CHRONICLES</span><h2 id="historyTitle">My Adventure History</h2><p>Every saved journey, newest first. Duration includes pauses.</p><div id="historyContent" class="table-scroll"></div><button id="historyStart">Start Adventure ?</button></section>
+<section id="leaderboardPanel" class="panel" hidden aria-labelledby="championsTitle"><button class="back-button quiet" data-dashboard>? Back to Dashboard</button><span class="eyebrow">HALL OF LEGENDS</span><h2 id="championsTitle">Shadow Realm Champions</h2><p>Real victories. Verified scores. A place in the kingdom's history.</p><div id="podium" class="podium"></div><ol id="leaderboard" class="rankings"></ol></section>
+<section id="gamePanel" hidden aria-labelledby="gameTitle">
+    <div class="game-heading"><div><span class="eyebrow">THE ADVENTURE</span><h2 id="gameTitle">Enchanted Forest</h2></div><button id="exitGame" class="quiet">? Dashboard</button></div>
+    <div class="game-hud"><canvas id="gamePortrait" class="portrait portrait-small"></canvas><strong id="gameUsername"></strong><div class="health-block"><span id="health">Health: 3 / 3</span><progress id="healthMeter" max="3" value="3" aria-label="Player health"></progress></div><span id="score">Score: 0</span><span id="crystals">Crystals: 0 / 3</span><span id="timer">Elapsed: 00:00</span></div>
+    <div class="viewport"><canvas id="game" width="760" height="360" tabindex="0" aria-label="Adventure game. Move with A or D, jump with W or Space."></canvas>
+        <div id="resultOverlay" class="result-overlay" hidden><div class="result-card"><span class="eyebrow" id="resultEyebrow">YOUR JOURNEY</span><h2 id="resultTitle"></h2><p id="resultSummary"></p><button id="retryLevel">Retry Adventure</button><button id="nextLevel" hidden>Next Level ?</button><button class="secondary" data-dashboard>Back to Dashboard</button></div></div>
+    </div>
+    <div class="game-toolbar"><p id="instructions">Collect all three crystals and reach the portal.</p><div><button id="pauseButton" class="secondary">? Pause</button><button id="resumeButton" class="secondary" disabled>? Resume</button><button id="restartButton" class="quiet">? Restart</button></div></div>
+    <p class="hint">Move: A / D or ? / ? ? Jump: W, ? or Space ? Collect three crystals ? Solve the Rune Gate</p>
+    <div id="gate" class="panel rune-panel" hidden><span class="eyebrow">THE FINAL SEAL</span><h2>Rune Gate Challenge</h2><p>Solve the university Fish API puzzle to complete this realm. A service failure never costs health.</p><button id="loadRune">Load Rune / Retry</button><div id="runeArea" hidden><img id="runeImage" alt="Fish and chest mathematical puzzle"><form id="runeForm"><label>Fish value<input name="fish" type="number" step="1" required></label><label>Chest value<input name="chest" type="number" step="1" required></label><button type="submit">Unlock Gate</button></form></div></div>
+</section>
+<p id="message" role="status" aria-live="polite"></p>
+</main>
+<footer>Shadow Realm ? The Lost Kingdom <span>Original Canvas artwork ? University coursework</span></footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
