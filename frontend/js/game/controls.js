@@ -1,3 +1,9 @@
+/*
+ * Shadow Realm: The Lost Kingdom
+ * Project-level AI acknowledgment: OpenAI ChatGPT and Codex supported
+ * implementation, refinement and learning. The developer supplied game
+ * ideas, requirements and design direction; no exact authorship split is claimed.
+ */
 // Install keyboard events once for this game instance.
 export function installControls(game) {
     const keydown = event => {

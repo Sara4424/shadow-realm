@@ -1,3 +1,9 @@
+/*
+ * Shadow Realm: The Lost Kingdom
+ * Project-level AI acknowledgment: OpenAI ChatGPT and Codex supported
+ * implementation, refinement and learning. The developer supplied game
+ * ideas, requirements and design direction; no exact authorship split is claimed.
+ */
 import { levelNames } from '../game/levels.js';
 import { drawWorld } from '../game/renderer.js';
 import { drawPortrait, element, statCard } from './screens.js';

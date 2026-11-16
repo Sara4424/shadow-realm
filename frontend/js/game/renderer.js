@@ -1,3 +1,9 @@
+/*
+ * Shadow Realm: The Lost Kingdom
+ * Project-level AI acknowledgment: OpenAI ChatGPT and Codex supported
+ * implementation, refinement and learning. The developer supplied game
+ * ideas, requirements and design direction; no exact authorship split is claimed.
+ */
 // Procedural artwork: no image downloads or per-frame asset loading.
 const palettes = [
   ['#081d2b', '#24645e', '#123c40', '#1f6153', '#71dcb0'],

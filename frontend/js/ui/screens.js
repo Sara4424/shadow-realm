@@ -1,3 +1,9 @@
+/*
+ * Shadow Realm: The Lost Kingdom
+ * Project-level AI acknowledgment: OpenAI ChatGPT and Codex supported
+ * implementation, refinement and learning. The developer supplied game
+ * ideas, requirements and design direction; no exact authorship split is claimed.
+ */
 const screenIds = ['auth', 'dashboard', 'profileScreen', 'historyScreen', 'leaderboardPanel', 'gamePanel'];
 let activeScreen = 'auth';
 

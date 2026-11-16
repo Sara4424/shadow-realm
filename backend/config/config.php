@@ -1,4 +1,10 @@
 <?php
+/*
+ * Shadow Realm: The Lost Kingdom
+ * Project-level AI acknowledgment: OpenAI ChatGPT and Codex supported
+ * implementation, refinement and learning. The developer supplied game
+ * ideas, requirements and design direction; no exact authorship split is claimed.
+ */
 // Read local settings without exposing credentials through API responses.
 $settings = parse_ini_file(dirname(__DIR__, 2) . '/.env', false, INI_SCANNER_RAW) ?: [];
 function setting(string $name, string $default = ''): string

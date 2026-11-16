@@ -1,3 +1,7 @@
+-- Shadow Realm: The Lost Kingdom
+-- Project-level AI acknowledgment: OpenAI ChatGPT and Codex supported
+-- implementation, refinement and learning. The developer supplied project
+-- requirements and design direction; no exact authorship split is claimed.
 CREATE DATABASE IF NOT EXISTS shadow_realm_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE shadow_realm_db;
 CREATE TABLE IF NOT EXISTS users (

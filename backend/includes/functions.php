@@ -1,4 +1,10 @@
 <?php
+/*
+ * Shadow Realm: The Lost Kingdom
+ * Project-level AI acknowledgment: OpenAI ChatGPT and Codex supported
+ * implementation, refinement and learning. The developer supplied game
+ * ideas, requirements and design direction; no exact authorship split is claimed.
+ */
 require_once __DIR__ . '/../../database/connection.php';
 ini_set('session.use_strict_mode', '1');
 session_name('shadow_realm');
